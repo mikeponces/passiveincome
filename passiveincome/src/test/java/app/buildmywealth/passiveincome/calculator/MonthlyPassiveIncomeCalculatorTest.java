@@ -16,6 +16,11 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		// 2. Setup test data
 		// 3. Call your method
 		// 4. Verify with assert statements
+		
+		// TODO: DISCUSS BASIC ANNOTATIONS
+		// assertTrue, assertFalse
+		// assertNull, assertNotNull
+		// assertEquals, assertNotEquals
 	}
 
 	@Test
