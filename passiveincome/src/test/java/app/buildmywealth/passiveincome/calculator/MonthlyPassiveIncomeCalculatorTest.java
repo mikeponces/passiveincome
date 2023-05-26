@@ -8,13 +8,18 @@ import java.time.LocalDate;
 import org.junit.Test;
 
 public class MonthlyPassiveIncomeCalculatorTest {
+	
+	@Test // TODO: DISCUSS ANNOTATION
+	public void testMethod() {
+		// TODO: DISCUSS TEST CASE COMPOSITION
+		// 1. Provide expectation
+		// 2. Setup test data
+		// 3. Call your method
+		// 4. Verify with assert statements
+	}
 
 	@Test
 	public void sameMonth() {
-		// expectation
-		// setup data
-		// call method
-		// assert
 		BigDecimal expectedMonthlyPassiveIncome = BigDecimal.valueOf(60_000);
 		
 		BigDecimal totalPassiveIncome = BigDecimal.valueOf(60_000);
