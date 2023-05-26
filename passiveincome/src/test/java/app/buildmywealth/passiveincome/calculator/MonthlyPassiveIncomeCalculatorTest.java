@@ -31,8 +31,9 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		LocalDate sameMonth = LocalDate.of(2023, 5, 1);
 		
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = new MonthlyPassiveIncomeCalculator(totalPassiveIncome, sameMonth);
+		BigDecimal actualMonthlyPassiveIncome = monthlyPassiveIncomeCalulator.calculate();
 		
-		assertEquals(expectedMonthlyPassiveIncome, monthlyPassiveIncomeCalulator.calculate());
+		assertEquals(expectedMonthlyPassiveIncome, actualMonthlyPassiveIncome);
 	}
 	
 	@Test
@@ -43,8 +44,9 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		LocalDate oneMonthAgo = LocalDate.of(2023, 4, 1);
 		
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = new MonthlyPassiveIncomeCalculator(totalPassiveIncome, oneMonthAgo);
+		BigDecimal actualMonthlyPassiveIncome = monthlyPassiveIncomeCalulator.calculate();
 		
-		assertEquals(expectedMonthlyPassiveIncome, monthlyPassiveIncomeCalulator.calculate());
+		assertEquals(expectedMonthlyPassiveIncome, actualMonthlyPassiveIncome);
 	}
 	
 	@Test
@@ -55,7 +57,8 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		LocalDate sixMonthsAgo = LocalDate.of(2022, 11, 1);
 		
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = new MonthlyPassiveIncomeCalculator(totalPassiveIncome, sixMonthsAgo);
+		BigDecimal actualMonthlyPassiveIncome = monthlyPassiveIncomeCalulator.calculate();
 		
-		assertEquals(expectedMonthlyPassiveIncome, monthlyPassiveIncomeCalulator.calculate());
+		assertEquals(expectedMonthlyPassiveIncome, actualMonthlyPassiveIncome);
 	}
 }
