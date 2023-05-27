@@ -17,6 +17,8 @@ import app.buildmywealth.passiveincome.model.PassiveIncomeSchedule;
 
 public class MonthlyPassiveIncomeCalculatorTest {
 	
+	private static final LocalDate TODAY = LocalDate.of(2023, 5, 30);
+
 	/**
 	 * TODO: Discuss Mock Test Flow:
 	 * 1. Create mock objects
@@ -41,7 +43,7 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = MonthlyPassiveIncomeCalculator.of(investment, passiveIncomeSchedules);
 		monthlyPassiveIncomeCalulator.setCurrentDateSupplier(currentDateSupplier);
 		
-		expect(currentDateSupplier.get()).andReturn(LocalDate.of(2023, 5, 30));
+		expect(currentDateSupplier.get()).andReturn(TODAY);
 		replay(currentDateSupplier);
 		
 		BigDecimal actualMonthlyPassiveIncome = monthlyPassiveIncomeCalulator.calculate();
@@ -67,7 +69,7 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = MonthlyPassiveIncomeCalculator.of(investment, passiveIncomeSchedules);
 		monthlyPassiveIncomeCalulator.setCurrentDateSupplier(currentDateSupplier);
 		
-		expect(currentDateSupplier.get()).andReturn(LocalDate.of(2023, 5, 30));
+		expect(currentDateSupplier.get()).andReturn(TODAY);
 		replay(currentDateSupplier);
 		
 		BigDecimal actualMonthlyPassiveIncome = monthlyPassiveIncomeCalulator.calculate();
@@ -93,7 +95,7 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = MonthlyPassiveIncomeCalculator.of(investment, passiveIncomeSchedules);
 		monthlyPassiveIncomeCalulator.setCurrentDateSupplier(currentDateSupplier);
 		
-		expect(currentDateSupplier.get()).andReturn(LocalDate.of(2023, 5, 30));
+		expect(currentDateSupplier.get()).andReturn(TODAY);
 		replay(currentDateSupplier);
 		
 		BigDecimal actualMonthlyPassiveIncome = monthlyPassiveIncomeCalulator.calculate();
