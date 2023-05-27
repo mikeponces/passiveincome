@@ -25,6 +25,7 @@ public class MonthlyPassiveIncomeCalculatorTest {
 	
 	@BeforeClass
 	public static void setUp() {
+		// TODO: passiveIncomeSchedules
 		System.out.println("setUp once");
 	}
 	
