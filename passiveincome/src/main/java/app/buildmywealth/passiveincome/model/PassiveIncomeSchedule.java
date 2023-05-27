@@ -9,8 +9,9 @@ public class PassiveIncomeSchedule {
 	private LocalDate dateReceived;
 	private BigDecimal amount;
 	
-	public PassiveIncomeSchedule(BigDecimal amount) {
+	public PassiveIncomeSchedule(LocalDate dateReceived, BigDecimal amount) {
 		super();
+		this.dateReceived = dateReceived;
 		this.amount = amount;
 	}
 	public int getId() {

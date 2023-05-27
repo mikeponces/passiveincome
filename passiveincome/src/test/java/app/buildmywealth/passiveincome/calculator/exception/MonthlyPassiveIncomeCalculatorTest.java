@@ -1,4 +1,4 @@
-package app.buildmywealth.passiveincome.calculator.enhanced;
+package app.buildmywealth.passiveincome.calculator.exception;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,10 +6,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import app.buildmywealth.passiveincome.model.Investment;
@@ -17,34 +13,10 @@ import app.buildmywealth.passiveincome.model.PassiveIncomeSchedule;
 
 public class MonthlyPassiveIncomeCalculatorTest {
 
-	// TODO: DISCUSS TEST COVERAGE
+	// TODO: Run Test Coverage before
+	// TODO: Add @Test(expect)
+	// TODO: Run Test Coverage after
 	
-	// TODO: DISCUSS ANNOTATIONS
-	// 1. BeforeClass and AfterClass
-	// 2. Before and After
-	
-	@BeforeClass
-	public static void setUp() {
-		// TODO: passiveIncomeSchedules
-		System.out.println("setUp once");
-	}
-	
-	@AfterClass
-	public static void tearDown() {
-		System.out.println("tearDown once");
-	}
-	
-	@Before
-	public void before() {
-		System.out.println("Before each test");
-	}
-	
-	@After
-	public void after() {
-		System.out.println("After each test");
-	}
-
-
 	@Test
 	public void sameMonth() {
 		BigDecimal expectedMonthlyPassiveIncome = BigDecimal.valueOf(60_000);
@@ -97,5 +69,19 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		BigDecimal actualMonthlyPassiveIncome = monthlyPassiveIncomeCalulator.calculate();
 		
 		assertEquals(expectedMonthlyPassiveIncome, actualMonthlyPassiveIncome);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void incomeBeforeDateCreated() {
+		Investment investment = new Investment();
+		LocalDate sameMonth = LocalDate.of(2023, 5, 1);
+		investment.setDateCreated(sameMonth);
+		
+		List<PassiveIncomeSchedule> passiveIncomeSchedules = List.of(
+				new PassiveIncomeSchedule(LocalDate.of(2023, 5, 1), BigDecimal.valueOf(30_000)), 
+				new PassiveIncomeSchedule(LocalDate.of(2023, 4, 2), BigDecimal.valueOf(30_000)));
+		
+		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = MonthlyPassiveIncomeCalculator.of(investment, passiveIncomeSchedules);
+		monthlyPassiveIncomeCalulator.calculate();
 	}
 }

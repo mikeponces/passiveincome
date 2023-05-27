@@ -1,4 +1,4 @@
-package app.buildmywealth.passiveincome.calculator.enhanced;
+package app.buildmywealth.passiveincome.calculator.exception;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,9 +20,15 @@ public class MonthlyPassiveIncomeCalculator {
 
 	public static MonthlyPassiveIncomeCalculator of(Investment investment,
 			Collection<PassiveIncomeSchedule> passiveIncomeSchedules) {
+		LocalDate startDate = investment.getDateCreated();
+
+		if (passiveIncomeSchedules.stream()
+				.anyMatch((passiveIncomeSchedule) -> passiveIncomeSchedule.getDateReceived().isBefore(startDate))) {
+			throw new IllegalArgumentException("Invalid Passive Income Schedule");
+		}
+
 		BigDecimal totalPassiveIncome = passiveIncomeSchedules.stream().map(PassiveIncomeSchedule::getAmount)
 				.reduce(BigDecimal.ZERO, BigDecimal::add);
-		LocalDate startDate = investment.getDateCreated();
 
 		return new MonthlyPassiveIncomeCalculator(totalPassiveIncome, startDate);
 	}
