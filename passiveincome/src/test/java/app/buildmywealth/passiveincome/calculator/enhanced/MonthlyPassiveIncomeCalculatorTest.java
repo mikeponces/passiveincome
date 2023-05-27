@@ -51,7 +51,7 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		
 		Investment investment = new Investment();
 		LocalDate sameMonth = LocalDate.of(2023, 5, 1);
-		investment.setPurchaseDate(sameMonth);
+		investment.setDateCreated(sameMonth);
 		
 		Stream<PassiveIncomeSchedule> passiveIncomeSchedules = Stream.of(
 				new PassiveIncomeSchedule(BigDecimal.valueOf(30_000)), 
@@ -69,7 +69,7 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		
 		Investment investment = new Investment();
 		LocalDate oneMonthAgo = LocalDate.of(2023, 4, 1);
-		investment.setPurchaseDate(oneMonthAgo);
+		investment.setDateCreated(oneMonthAgo);
 		
 		Stream<PassiveIncomeSchedule> passiveIncomeSchedules = Stream.of(
 				new PassiveIncomeSchedule(BigDecimal.valueOf(30_000)), 
@@ -87,7 +87,7 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		
 		Investment investment = new Investment();
 		LocalDate sixMonthsAgo = LocalDate.of(2022, 11, 1);
-		investment.setPurchaseDate(sixMonthsAgo);
+		investment.setDateCreated(sixMonthsAgo);
 		
 		Stream<PassiveIncomeSchedule> passiveIncomeSchedules = Stream.of(
 				new PassiveIncomeSchedule(BigDecimal.valueOf(30_000)), 

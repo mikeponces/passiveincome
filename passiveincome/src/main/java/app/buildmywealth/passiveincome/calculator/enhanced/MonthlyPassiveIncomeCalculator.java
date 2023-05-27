@@ -22,7 +22,7 @@ public class MonthlyPassiveIncomeCalculator {
 		BigDecimal totalPassiveIncome = passiveIncomeSchedules
 				.map(PassiveIncomeSchedule::getAmount)
 				.reduce(BigDecimal.ZERO, BigDecimal::add);
-		LocalDate startDate = investment.getPurchaseDate();
+		LocalDate startDate = investment.getDateCreated();
 		
 		return new MonthlyPassiveIncomeCalculator(totalPassiveIncome, startDate);
 	}

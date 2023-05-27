@@ -7,7 +7,7 @@ public class Investment {
 
 	private int id;
 	private String name;
-	private LocalDate purchaseDate;
+	private LocalDate dateCreated;
 	private BigDecimal monthlyPassiveIncome;
 	
 	public int getId() {
@@ -22,11 +22,11 @@ public class Investment {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public LocalDate getPurchaseDate() {
-		return purchaseDate;
+	public LocalDate getDateCreated() {
+		return dateCreated;
 	}
-	public void setPurchaseDate(LocalDate purchaseDate) {
-		this.purchaseDate = purchaseDate;
+	public void setDateCreated(LocalDate dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 	public BigDecimal getMonthlyPassiveIncome() {
 		return monthlyPassiveIncome;
