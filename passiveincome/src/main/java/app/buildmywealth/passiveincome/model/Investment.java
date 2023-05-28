@@ -6,13 +6,13 @@ import java.time.LocalDate;
 public class Investment {
 
 	private String name;
-	private LocalDate dateCreated;
+	private LocalDate datePurchased;
 	private BigDecimal monthlyPassiveIncome;
 
-	public Investment(String name, LocalDate dateCreated) {
+	public Investment(String name, LocalDate datePurchased) {
 		super();
 		this.name = name;
-		this.dateCreated = dateCreated;
+		this.datePurchased = datePurchased;
 	}
 
 	public String getName() {
@@ -23,12 +23,12 @@ public class Investment {
 		this.name = name;
 	}
 
-	public LocalDate getDateCreated() {
-		return dateCreated;
+	public LocalDate getDatePurchased() {
+		return datePurchased;
 	}
 
-	public void setDateCreated(LocalDate dateCreated) {
-		this.dateCreated = dateCreated;
+	public void setDatePurchased(LocalDate datePurchased) {
+		this.datePurchased = datePurchased;
 	}
 
 	public BigDecimal getMonthlyPassiveIncome() {

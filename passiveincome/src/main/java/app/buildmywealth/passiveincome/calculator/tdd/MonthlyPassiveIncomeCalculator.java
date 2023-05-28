@@ -22,7 +22,7 @@ public class MonthlyPassiveIncomeCalculator {
 
 	public static MonthlyPassiveIncomeCalculator of(Investment investment,
 			Collection<PassiveIncomeSchedule> passiveIncomeSchedules) {
-		LocalDate startDate = investment.getDateCreated();
+		LocalDate startDate = investment.getDatePurchased();
 
 		if (passiveIncomeSchedules.stream()
 				.anyMatch((passiveIncomeSchedule) -> passiveIncomeSchedule.getDateReceived().isBefore(startDate))) {
