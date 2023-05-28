@@ -31,9 +31,8 @@ public class MonthlyPassiveIncomeCalculatorTest {
 	public void sameMonth() {
 		BigDecimal expectedMonthlyPassiveIncome = BigDecimal.valueOf(60_000);
 		
-		Investment investment = new Investment();
 		LocalDate sameMonth = LocalDate.of(2023, 5, 1);
-		investment.setDateCreated(sameMonth);
+		Investment investment = new Investment("Government Bonds", sameMonth);
 		
 		List<PassiveIncomeSchedule> passiveIncomeSchedules = List.of(
 				new PassiveIncomeSchedule(LocalDate.of(2023, 5, 1), BigDecimal.valueOf(30_000)), 
@@ -57,9 +56,8 @@ public class MonthlyPassiveIncomeCalculatorTest {
 	public void oneMonth() {
 		BigDecimal expectedMonthlyPassiveIncome = BigDecimal.valueOf(60_000);
 		
-		Investment investment = new Investment();
 		LocalDate oneMonthAgo = LocalDate.of(2023, 4, 1);
-		investment.setDateCreated(oneMonthAgo);
+		Investment investment = new Investment("Stocks", oneMonthAgo);
 		
 		List<PassiveIncomeSchedule> passiveIncomeSchedules = List.of(
 				new PassiveIncomeSchedule(LocalDate.of(2023, 4, 1), BigDecimal.valueOf(30_000)), 
@@ -83,9 +81,8 @@ public class MonthlyPassiveIncomeCalculatorTest {
 	public void sixMonths() {
 		BigDecimal expectedMonthlyPassiveIncome = BigDecimal.valueOf(10_000);
 		
-		Investment investment = new Investment();
 		LocalDate sixMonthsAgo = LocalDate.of(2022, 11, 1);
-		investment.setDateCreated(sixMonthsAgo);
+		Investment investment = new Investment("Pag-IBIG MP2", sixMonthsAgo);
 		
 		List<PassiveIncomeSchedule> passiveIncomeSchedules = List.of(
 				new PassiveIncomeSchedule(LocalDate.of(2022, 11, 1), BigDecimal.valueOf(30_000)), 
@@ -107,9 +104,8 @@ public class MonthlyPassiveIncomeCalculatorTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void incomeBeforeDateCreated() {
-		Investment investment = new Investment();
 		LocalDate sameMonth = LocalDate.of(2023, 5, 1);
-		investment.setDateCreated(sameMonth);
+		Investment investment = new Investment("Corporate Bonds", sameMonth);
 		
 		List<PassiveIncomeSchedule> passiveIncomeSchedules = List.of(
 				new PassiveIncomeSchedule(LocalDate.of(2023, 5, 1), BigDecimal.valueOf(30_000)), 

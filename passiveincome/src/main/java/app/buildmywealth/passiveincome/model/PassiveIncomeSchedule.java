@@ -5,7 +5,6 @@ import java.time.LocalDate;
 
 public class PassiveIncomeSchedule {
 	public static final String BROKERS_FEE = "Broker's Fee";
-	private int id;
 	private int investmentId;
 	private String description;
 	private LocalDate dateReceived;
@@ -19,12 +18,6 @@ public class PassiveIncomeSchedule {
 		this.dateReceived = dateReceived;
 		this.amount = amount;
 		this.description = description;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public int getInvestmentId() {
 		return investmentId;
