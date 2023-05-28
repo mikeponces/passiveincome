@@ -20,7 +20,7 @@ public class MonthlyPassiveIncomeCalculator {
 		if (monthsExisting == 0) {
 			monthsExisting = 1;
 		}
-		
+
 		return totalPassiveIncome.divide(BigDecimal.valueOf(monthsExisting));
 	}
 }

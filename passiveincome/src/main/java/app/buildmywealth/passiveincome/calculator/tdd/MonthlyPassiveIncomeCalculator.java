@@ -31,8 +31,7 @@ public class MonthlyPassiveIncomeCalculator {
 
 		BigDecimal totalPassiveIncome = passiveIncomeSchedules.stream()
 				.filter((passiveIncomeSchedule) -> !passiveIncomeSchedule.isBrokersFee())
-				.map(PassiveIncomeSchedule::getAmount)
-				.reduce(BigDecimal.ZERO, BigDecimal::add);
+				.map(PassiveIncomeSchedule::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
 
 		return new MonthlyPassiveIncomeCalculator(totalPassiveIncome, startDate);
 	}
