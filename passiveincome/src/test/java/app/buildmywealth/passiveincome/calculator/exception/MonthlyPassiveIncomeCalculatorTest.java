@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.Test;
 
@@ -24,9 +26,10 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		LocalDate sameMonth = LocalDate.of(2023, 5, 1);
 		Investment investment = new Investment("Government Bonds", sameMonth);
 
-		List<PassiveIncomeSchedule> passiveIncomeSchedules = List.of(
-				new PassiveIncomeSchedule(LocalDate.of(2023, 5, 1), BigDecimal.valueOf(30_000)),
-				new PassiveIncomeSchedule(LocalDate.of(2023, 5, 2), BigDecimal.valueOf(30_000)));
+		List<PassiveIncomeSchedule> passiveIncomeSchedules = Stream
+				.of(new PassiveIncomeSchedule(LocalDate.of(2023, 5, 1), BigDecimal.valueOf(30_000)),
+						new PassiveIncomeSchedule(LocalDate.of(2023, 5, 2), BigDecimal.valueOf(30_000)))
+				.collect(Collectors.toList());
 
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = MonthlyPassiveIncomeCalculator.of(investment,
 				passiveIncomeSchedules);
@@ -42,9 +45,10 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		LocalDate oneMonthAgo = LocalDate.of(2023, 4, 1);
 		Investment investment = new Investment("Stocks", oneMonthAgo);
 
-		List<PassiveIncomeSchedule> passiveIncomeSchedules = List.of(
-				new PassiveIncomeSchedule(LocalDate.of(2023, 4, 1), BigDecimal.valueOf(30_000)),
-				new PassiveIncomeSchedule(LocalDate.of(2023, 4, 2), BigDecimal.valueOf(30_000)));
+		List<PassiveIncomeSchedule> passiveIncomeSchedules = Stream
+				.of(new PassiveIncomeSchedule(LocalDate.of(2023, 4, 1), BigDecimal.valueOf(30_000)),
+						new PassiveIncomeSchedule(LocalDate.of(2023, 4, 2), BigDecimal.valueOf(30_000)))
+				.collect(Collectors.toList());
 
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = MonthlyPassiveIncomeCalculator.of(investment,
 				passiveIncomeSchedules);
@@ -60,9 +64,10 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		LocalDate sixMonthsAgo = LocalDate.of(2022, 11, 1);
 		Investment investment = new Investment("Pag-IBIG MP2", sixMonthsAgo);
 
-		List<PassiveIncomeSchedule> passiveIncomeSchedules = List.of(
-				new PassiveIncomeSchedule(LocalDate.of(2022, 11, 1), BigDecimal.valueOf(30_000)),
-				new PassiveIncomeSchedule(LocalDate.of(2022, 11, 2), BigDecimal.valueOf(30_000)));
+		List<PassiveIncomeSchedule> passiveIncomeSchedules = Stream
+				.of(new PassiveIncomeSchedule(LocalDate.of(2022, 11, 1), BigDecimal.valueOf(30_000)),
+						new PassiveIncomeSchedule(LocalDate.of(2022, 11, 2), BigDecimal.valueOf(30_000)))
+				.collect(Collectors.toList());
 
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = MonthlyPassiveIncomeCalculator.of(investment,
 				passiveIncomeSchedules);
@@ -76,9 +81,10 @@ public class MonthlyPassiveIncomeCalculatorTest {
 		LocalDate sameMonth = LocalDate.of(2023, 5, 1);
 		Investment investment = new Investment("Corporate Bonds", sameMonth);
 
-		List<PassiveIncomeSchedule> passiveIncomeSchedules = List.of(
-				new PassiveIncomeSchedule(LocalDate.of(2023, 5, 1), BigDecimal.valueOf(30_000)),
-				new PassiveIncomeSchedule(LocalDate.of(2023, 4, 2), BigDecimal.valueOf(30_000)));
+		List<PassiveIncomeSchedule> passiveIncomeSchedules = Stream
+				.of(new PassiveIncomeSchedule(LocalDate.of(2023, 5, 1), BigDecimal.valueOf(30_000)),
+						new PassiveIncomeSchedule(LocalDate.of(2023, 4, 2), BigDecimal.valueOf(30_000)))
+				.collect(Collectors.toList());
 
 		MonthlyPassiveIncomeCalculator monthlyPassiveIncomeCalulator = MonthlyPassiveIncomeCalculator.of(investment,
 				passiveIncomeSchedules);
